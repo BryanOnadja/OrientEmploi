@@ -1,75 +1,32 @@
-# React + TypeScript + Vite
+Prérequis
+Avant de lancer le projet, assurez-vous d'avoir installé :
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Node.js (version 16 ou supérieure recommandée)
 
-Currently, two official plugins are available:
+1. Lancer le Backend (Serveur et Base de données)
+Le backend gère la lecture des offres depuis le fichier offres.json.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Ouvrez un terminal et placez-vous dans le dossier backend :
+cd backend
 
-## React Compiler
+Installez les dépendances :
+npm install
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Démarrez le serveur :
+npm start
+(Si npm start n'est pas configuré, utilisez node index.js)
 
-## Expanding the ESLint configuration
+2. Lancer le Frontend (Interface Utilisateur)
+Le frontend est propulsé par React et Vite.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Ouvrez un nouveau terminal (laissez le backend tourner dans le premier) et placez-vous dans le dossier frontend :
+cd frontend
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Installez les dépendances :
+npm install
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Démarrez l'environnement de développement :
+npm run dev
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
-
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
+3. Accéder à l'application
+Une fois le frontend lancé, ouvrez votre navigateur et accédez à l'adresse locale fournie par Vite (généralement http://localhost:5173).
